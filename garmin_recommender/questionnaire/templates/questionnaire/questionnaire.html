@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Garmin Watch</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="text-center">Find Your Perfect Garmin Watch</h1>
+    <p class="text-center">Answer a few quick questions, and we'll recommend the best watch for you!</p>
+
+    <div class="card p-4">
+        <form id="questionnaire-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary w-100">Find My Watch</button>
+        </form>
+    </div>
+
+    <div id="results" class="mt-4"></div>
+    <div class="text-center mt-4">
+        <a href="{% url 'watch_catalog' %}" class="btn btn-secondary">View All Garmin Watches</a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $("#questionnaire-form").on("submit", function(event) {
+            event.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{% url 'questionnaire' %}",
+                data: $(this).serialize(),
+                success: function(response) {
+                    $("#results").html(response);
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garmin Watch Finder - Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="text-center">Welcome to Garmin Watch Finder</h1>
+    <p class="text-center text-muted">Find the perfect Garmin watch for your needs!</p>
+
+    <div class="row mt-4">
+        <!-- Questionnaire -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Find Your Perfect Watch</h5>
+                    <p class="card-text">Answer a few questions, and we'll suggest the best Garmin watch for you.</p>
+                    <a href="{% url 'questionnaire' %}" class="btn btn-primary">Start Questionnaire</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Watch Catalog -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">View All Garmin Watches</h5>
+                    <p class="card-text">Browse through all available Garmin watches and their specifications.</p>
+                    <a href="{% url 'watch_catalog' %}" class="btn btn-primary">Browse Watches</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compare Watches -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Compare Garmin Watches</h5>
+                    <p class="card-text">Select up to 3 watches and compare their features side by side.</p>
+                    <a href="{% url 'compare_watches' %}" class="btn btn-primary">Compare Watches</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- How to Use Section -->
+    <div class="mt-5 p-4 bg-white rounded shadow-sm">
+        <h2>How to Use This Website</h2>
+        <ul>
+            <li><strong>Step 1:</strong> Use the <a href="{% url 'questionnaire' %}">Questionnaire</a> to get watch recommendations.</li>
+            <li><strong>Step 2:</strong> Browse the <a href="{% url 'watch_catalog' %}">Watch Catalog</a> to explore all Garmin watches.</li>
+            <li><strong>Step 3:</strong> Use the <a href="{% url 'compare_watches' %}">Comparison Tool</a> to compare watches side by side.</li>
+        </ul>
+        <p class="text-muted">Click on any card above to get started!</p>
+    </div>
+</div>
+
+</body>
+</html>

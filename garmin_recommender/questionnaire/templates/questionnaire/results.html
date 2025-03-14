@@ -1,0 +1,12 @@
+{% if watches %}
+    <h2 class="text-center">Recommended Garmin Watches</h2>
+    <ul class="list-group">
+        {% for watch in watches %}
+            <li class="list-group-item">
+                <strong>{{ watch.name }}</strong> - {{ watch.description }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p class="text-danger text-center">No watches match your criteria.</p>
+{% endif %}
